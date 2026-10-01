@@ -1,0 +1,31 @@
+XCOMM platform: Linux
+
+#define OSName                  Linux
+
+#define HasGcc                  YES
+#define HasSockets              YES
+#define HasPutenv               YES
+#define HasVFork                YES
+#define HasNdbm                 YES
+#define HasShm                  YES
+#define HasVoidSignalReturn     YES
+#define ExecableScripts         YES
+
+#define BuildServer             NO
+
+#define CcCmd                   gcc
+#define CppCmd                  /usr/bin/cpp
+#define LdCmd                   ld
+#define ArCmd                   ar cq
+#define RanlibCmd               ranlib
+#define LnCmd                   ln -s
+
+#define NeedConstPrototypes     YES
+#define NeedVarargsPrototypes   YES
+#define NeedFunctionPrototypes  YES
+#define NeedWidePrototypes      NO
+
+#define StandardDefines         -Dlinux -D__linux__
+#define ExtraLibraries          /**/
+#define LdCombineFlags          -r
+#define DoRanlibCmd             1
