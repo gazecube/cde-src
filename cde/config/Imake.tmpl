@@ -326,6 +326,16 @@ XCOMM
 #endif
 /*********************** END HP Addition *************************/
 
+/******* START Nekron's little Linux shim *********/
+#ifdef __linux__
+#define MacroIncludeFile <linux.cf>
+#define MacroFile linux.cf
+#undef __linux__
+#define LinuxArchitecture
+#endif
+/******* END Nekron's little Linux shim *********/
+
+
 #ifndef MacroIncludeFile
 XCOMM WARNING:  Imake.tmpl not configured; guessing at definitions!!!
 XCOMM This might mean that BOOTSTRAPCFLAGS was not set when building imake.
