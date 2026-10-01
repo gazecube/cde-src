@@ -126,6 +126,7 @@
 FILE * fdopen();
 #endif
 #include <ctype.h>
+#include <string.h>
 #include "Xosdefs.h"
 #ifndef X_NOT_POSIX
 #define _POSIX_SOURCE
@@ -521,7 +522,6 @@ LogFatalI(s, i)
 LogFatal(x0,x1)
     char *x0, *x1;
 {
-    extern char *sys_errlist[];
     static boolean  entered = FALSE;
 
     if (entered)
@@ -530,7 +530,7 @@ LogFatal(x0,x1)
 
     fprintf(stderr, "%s: ", program);
     if (errno)
-        fprintf(stderr, "%s: ", sys_errlist[ errno ]);
+        fprintf(stderr, "%s: ", strerror(errno));
     fprintf(stderr, x0,x1);
     fprintf(stderr, "  Stop.\n");
     wrapup();
