@@ -9,7 +9,7 @@ EXTRA_CCOPTIONS = -Wl,-a archive
 #endif
 #endif
 
-EXTRA_DEFINES = NoLargeFiles
+EXTRA_DEFINES = -DNoLargeFiles
 
 #ifdef LinuxArchitecture
 /*
