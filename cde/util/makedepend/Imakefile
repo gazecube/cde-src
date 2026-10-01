@@ -11,12 +11,21 @@ EXTRA_CCOPTIONS = -Wl,-a archive
 
 EXTRA_DEFINES = NoLargeFiles
 
+#ifdef LinuxArchitecture
+/*
+ * GCC's private headers (stddef.h, stdarg.h, etc.) live in a
+ * versioned target-specific directory on modern Linux.
+ */
+PREINCDIR = $(shell $(CC) -print-file-name=include)
+PREINC_DEFINES = -DPREINCDIR=\"$(PREINCDIR)\"
+#else
 #if HasGcc && !defined(PreIncDir)
 #define PreIncDir /usr/local/lib/gcc-include
 #endif
 #ifdef PreIncDir
 PREINCDIR = PreIncDir
 PREINC_DEFINES = -DPREINCDIR=\"$(PREINCDIR)\"
+#endif
 #endif
 #ifndef StdIncDir
 #define StdIncDir /usr/include
