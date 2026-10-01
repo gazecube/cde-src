@@ -328,6 +328,9 @@ XCOMM
 
 /******* START Nekron's little Linux shim *********/
 #ifdef __linux__
+#ifdef linux
+#undef linux
+#endif
 #define MacroIncludeFile <linux.cf>
 #define MacroFile linux.cf
 #undef __linux__
