@@ -1,0 +1,24 @@
+/*
+ * Local build overrides for Linux/Slackware.
+ * Keep this intentionally small; platform details live in linux.cf.
+ */
+
+#define HasGcc                  YES
+#define HasSockets              YES
+#define HasPutenv               YES
+#define HasVFork                YES
+#define HasNdbm                 YES
+#define HasShm                  YES
+#define HasVoidSignalReturn     YES
+
+#define NeedConstPrototypes     YES
+#define NeedVarargsPrototypes   YES
+#define NeedFunctionPrototypes  YES
+
+#define BuildServer             NO
+#define BuildMotif              YES
+#define SunCDE                  NO
+
+#define CdeInstallationTop      /usr/dt
+#define CdeConfigurationTop     /etc/dt
+#define CdeLogFilesTop          /var/dt
