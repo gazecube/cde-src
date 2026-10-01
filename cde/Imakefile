@@ -52,7 +52,6 @@ LINTLIBDIRS= \
 
 
 MakeSubdirs($(SUBDIRS))
-IncludesSubdirs($(SUBDIRS))
 
 MakeLintLibSubdirs($(LINTLIBDIRS))
 

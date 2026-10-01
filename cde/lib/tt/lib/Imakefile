@@ -15,7 +15,6 @@ XCOMM $XConsortium: Imakefile /main/cde1_maint/4 1995/10/07 19:03:55 pascale $
 SUBDIRS = api db mp util tttk
 
 MakeSubdirs($(SUBDIRS))
-IncludesSubdirs($(SUBDIRS))
 MakeLintLibSubdirs($(LINTLIBSUBDIRS))
 DependSubdirs($(SUBDIRS))
 

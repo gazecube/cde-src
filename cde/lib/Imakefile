@@ -155,7 +155,6 @@ SUBDIRS = $(OTHERDIRS) $(LINTSUBDIRS) $(NLS) $(SYNLIBDIR)
 
 
 MakeSubdirs($(SUBDIRS))
-IncludesSubdirs($(SUBDIRS))
 DependSubdirs($(SUBDIRS))
 MakeLintLibSubdirs($(LINTSUBDIRS))
 MakeLintSubdirs($(LINTSUBDIRS),install.ln,install.ln)

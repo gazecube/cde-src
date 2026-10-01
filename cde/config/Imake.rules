@@ -1264,7 +1264,7 @@ name::									@@\
 	    echo "Directory $(CURRENT_DIR)/$$i not found; Skipping" ; \	@@\
 	  else \							@@\
 		(cd $$i ; echo verb "in $(CURRENT_DIR)/$$i..."; \	@@\
-			$(MAKE) $(MFLAGS) flags subname); \		@@\
+			$(MAKE) -f Makefile $(MFLAGS) flags subname); \		@@\
 	  fi \								@@\
 	done
 #endif
@@ -1305,7 +1305,7 @@ NamedTargetSubdirs(depend,dirs,"depending",NullParameter,depend)
 #define ForceSubdirs(dirs)						@@\
 dirs: FRC								@@\
 	@cd $@ ; echo "making all in $(CURRENT_DIR)/$@..."; \		@@\
-	$(MAKE) $(MFLAGS) PassCDebugFlags all				@@\
+	$(MAKE) -f Makefile $(MFLAGS) PassCDebugFlags all				@@\
 									@@\
 FRC:
 #endif /* ForceSubdirs */
@@ -1423,7 +1423,7 @@ target::								@@\
 		/?*) newtop=  upprefix=  ;; \				@@\
 		*) upprefix=../ ;; \					@@\
 		esac; \							@@\
-		$(MAKE) 'IMAKE_DEFINES=$(IMAKE_DEFINES)' $${sub}dirMakefiles UPPREFIX=$$upprefix NEWTOP=$$newtop \	@@\
+		$(MAKE) -f Makefile 'IMAKE_DEFINES=$(IMAKE_DEFINES)' $${sub}dirMakefiles UPPREFIX=$$upprefix NEWTOP=$$newtop \	@@\
 		MAKEFILE_SUBDIR=$$i NEW_CURRENT_DIR=$(CURRENT_DIR)/$$i;\ @@\
 	  fi \							@@\
 	done
@@ -1441,7 +1441,7 @@ subdirMakefiles:							@@\
 	$(MV) $(MAKEFILE_SUBDIR)/Makefile $(MAKEFILE_SUBDIR)/Makefile.bak; \ @@\
 	else exit 0; fi							@@\
 	cd $(MAKEFILE_SUBDIR); $(IMAKE_CMD) -DTOPDIR=$(UPPREFIX)$(TOP) -DCURDIR=$(NEW_CURRENT_DIR); \	@@\
-	$(MAKE) $(MFLAGS) 'IMAKE_DEFINES=$(IMAKE_DEFINES)' Makefiles	@@\
+	$(MAKE) -f Makefile $(MFLAGS) 'IMAKE_DEFINES=$(IMAKE_DEFINES)' Makefiles	@@\
 									@@\
 subsubdirMakefiles:							@@\
 	$(RM) $(MAKEFILE_SUBDIR)/Makefile.bak				@@\
@@ -1449,7 +1449,7 @@ subsubdirMakefiles:							@@\
 	$(MV) $(MAKEFILE_SUBDIR)/Makefile $(MAKEFILE_SUBDIR)/Makefile.bak; \ @@\
 	else exit 0; fi							@@\
 	cd $(MAKEFILE_SUBDIR); $(IMAKE_CMD) -DTOPDIR=$(UPPREFIX)$(UPPREFIX)$(TOP) -DCURDIR=$(NEW_CURRENT_DIR); \	@@\
-	$(MAKE) $(MFLAGS) 'IMAKE_DEFINES=$(IMAKE_DEFINES)' Makefiles	@@\
+	$(MAKE) -f Makefile $(MFLAGS) 'IMAKE_DEFINES=$(IMAKE_DEFINES)' Makefiles	@@\
 									@@\
 subsubsubdirMakefiles:							@@\
 	$(RM) $(MAKEFILE_SUBDIR)/Makefile.bak				@@\
@@ -1457,7 +1457,7 @@ subsubsubdirMakefiles:							@@\
 	$(MV) $(MAKEFILE_SUBDIR)/Makefile $(MAKEFILE_SUBDIR)/Makefile.bak; \ @@\
 	else exit 0; fi @@\
 	cd $(MAKEFILE_SUBDIR); $(IMAKE_CMD) -DTOPDIR=$(UPPREFIX)$(UPPREFIX)$(UPPREFIX)$(TOP) -DCURDIR=$(NEW_CURRENT_DIR); \	@@\
-	$(MAKE) $(MFLAGS) 'IMAKE_DEFINES=$(IMAKE_DEFINES)' Makefiles	@@\
+	$(MAKE) -f Makefile $(MFLAGS) 'IMAKE_DEFINES=$(IMAKE_DEFINES)' Makefiles	@@\
 									@@\
 subsubsubsubdirMakefiles:						@@\
 	$(RM) $(MAKEFILE_SUBDIR)/Makefile.bak				@@\
@@ -1465,7 +1465,7 @@ subsubsubsubdirMakefiles:						@@\
 	$(MV) $(MAKEFILE_SUBDIR)/Makefile $(MAKEFILE_SUBDIR)/Makefile.bak; \ @@\
 	else exit 0; fi 						@@\
 	cd $(MAKEFILE_SUBDIR); $(IMAKE_CMD) -DTOPDIR=$(UPPREFIX)$(UPPREFIX)$(UPPREFIX)$(UPPREFIX)$(TOP) -DCURDIR=$(NEW_CURRENT_DIR); \	@@\
-	$(MAKE) $(MFLAGS) 'IMAKE_DEFINES=$(IMAKE_DEFINES)' Makefiles
+	$(MAKE) -f Makefile $(MFLAGS) 'IMAKE_DEFINES=$(IMAKE_DEFINES)' Makefiles
 #endif /* MakeNsubdirMakefiles */
 
 
