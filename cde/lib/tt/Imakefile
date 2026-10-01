@@ -8,6 +8,7 @@ TT_DIR = .
 SUBDIRS=mini_isam lib slib bin man
 
 MakeSubdirs($(SUBDIRS))
+IncludesSubdirs($(SUBDIRS))
 MakeLintLibSubdirs($(LINTLIBSUBDIRS))
 DependSubdirs($(SUBDIRS))
 

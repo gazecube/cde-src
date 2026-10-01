@@ -12,6 +12,7 @@
 /* for linking headers */
 SUBDIRS=bms SPC
 MakeSubdirs($(SUBDIRS))
+IncludesSubdirs($(SUBDIRS))
 DependSubdirs($(SUBDIRS))
 
 

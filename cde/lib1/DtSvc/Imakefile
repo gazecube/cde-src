@@ -18,6 +18,7 @@ EXPORTLIST = YES
 SUBDIRS=DtUtil1 DtUtil2 $(SPCDLIBS) DtXpm
 
 MakeSubdirs($(SUBDIRS))
+IncludesSubdirs($(SUBDIRS))
 DependSubdirs($(SUBDIRS))
 
 
