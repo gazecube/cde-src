@@ -178,6 +178,9 @@ char *cpp_argv[ARGUMENTS] = {
 	"cpp",		/* replaced by the actual cpp program to exec */
 #endif /* USE_CC_E */
 	"-I.",		/* add current directory to include path */
+#ifdef __linux__
+	"-traditional-cpp", /* CDE/X11R5 imake macros rely on traditional cpp */
+#endif
 #ifdef unix
 	"-Uunix",	/* remove unix symbol so that filename unix.c okay */
 #endif
