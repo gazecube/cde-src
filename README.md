@@ -1,2 +1,2 @@
-# cde-src
-The Common Desktop Environment source code. Taken from the Solaris 2.6 sources.
+# Common Desktop Environment
+Source code for the Common Desktop Environment for UNIX/X11
